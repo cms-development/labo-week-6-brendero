@@ -1,7 +1,7 @@
 export class Instructor {
   id?: number;
   type: string = 'instructor--instructor';
-  attributes: Attributes
+  attributes: Attributes;
 }
 
 export class Attributes {

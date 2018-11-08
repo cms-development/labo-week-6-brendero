@@ -1,0 +1,5 @@
+name: 'university'
+type: module
+description: 'University module'
+core: 8.x
+package: 'Custom'

@@ -19,6 +19,7 @@ export class InstructorService {
         const res = await axios.request<Instructor>({
           method: 'post',
           url: this.tokenUrl,
+          data: instructor
         });
 
         return res.data;

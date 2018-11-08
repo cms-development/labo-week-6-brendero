@@ -36,6 +36,7 @@ export class InstructorsAddComponent implements OnInit {
     this.instructor.attributes.field_first_name = this.firstName;
     this.instructor.attributes.field_academic_title = this.academicTitle;
     this.instructor.attributes.field_academic_rank = this.academicRank;
+    this.jsonFormat.data = this.instructor;
 
     this.instructorService.addInstructor(this.jsonFormat)
         .then(() => this.goBack());
