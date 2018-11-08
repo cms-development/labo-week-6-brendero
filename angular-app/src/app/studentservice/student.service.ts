@@ -72,9 +72,9 @@ export class StudentService {
   }
   // DELETE
 
-async deleteStudent(student: Student | number): Promise<Student> {
+async deleteStudent(student: Student | string): Promise<Student> {
   try {
-    const id = typeof student === 'number' ? student : student.id;
+    const id = student;
 
     const res = await axios.request<Student>({
       method: 'delete',

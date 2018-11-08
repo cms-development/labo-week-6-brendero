@@ -1,18 +1,34 @@
 export class Course {
   id?: number;
   type: string = 'course--course';
+  relationships: Relationships;
   attributes: Attributes;
-  field_instructor: number;
-  field_students: number;
 }
 
 export class Attributes {
   name: string;
   field_academic_institution: string;
-  relationships: Relationships
 }
 
 export class Relationships {
-  field_instructor: string;
-  field_students: []
+  field_instructor: FieldInstructorData;
+  field_students: FieldStudentsData;
+}
+
+export class FieldInstructorData {
+  data: FieldInstructor;
+}
+
+export class FieldStudentsData {
+  data: FieldStudents;
+}
+
+export class FieldStudents {
+  type: string = 'student--student';
+  id: string;
+}
+
+export class FieldInstructor {
+  type: string = 'instructor--instructor';
+  id: string;
 }

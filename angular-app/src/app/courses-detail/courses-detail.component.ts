@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Course } from './../Course';
 import { CourseService } from './../courseservice/course.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,18 +14,27 @@ export class CoursesDetailComponent implements OnInit {
 
   constructor(
     private courseService: CourseService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit() {
     this.getCourse();
   }
 
+  goBack(): void {
+    this.location.back();
+  }
   getCourse(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.courseService.getCourse(id)
         .then(courseData => {
           this.course = courseData.data;
-        })
+        });
+  }
+  deleteCourse(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.courseService.deleteCourse(id)
+      .then(() => this.goBack());
   }
 }

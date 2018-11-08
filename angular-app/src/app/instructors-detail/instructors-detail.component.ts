@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Instructor } from './../Instructor';
 import { InstructorService } from './../instructorservice/instructor.service';
 import { ActivatedRoute } from '@angular/router';
@@ -13,11 +14,16 @@ export class InstructorsDetailComponent implements OnInit {
 
   constructor(
     private instructorService: InstructorService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit() {
     this.getInstructor();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
   getInstructor(): void {
     const id = this.router.snapshot.paramMap.get('id');
@@ -27,5 +33,11 @@ export class InstructorsDetailComponent implements OnInit {
           this.instructor = instructorData.data;
           console.log(instructorData.data);
         });
+  }
+  deleteInstructor(): void {
+    const id = this.router.snapshot.paramMap.get('id');
+
+    this.instructorService.deleteInstructor(id)
+        .then(() => this.goBack());
   }
 }

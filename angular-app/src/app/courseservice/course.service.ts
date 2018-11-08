@@ -19,7 +19,7 @@ export class CourseService {
         const res = await axios.request<Course>({
           method: 'post',
           url: this.tokenUrl,
-          // TODO: add params
+          data: course
         });
 
         return res.data;
@@ -72,9 +72,9 @@ export class CourseService {
   }
   // DELETE
 
-async deleteCourse(course: Course | number): Promise<Course> {
+async deleteCourse(course: Course | string): Promise<Course> {
   try {
-    const id = typeof course === 'number' ? course : course.id;
+    const id = course;
 
     const res = await axios.request<Course>({
       method: 'delete',

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../Student';
@@ -12,11 +13,16 @@ export class StudentsDetailComponent implements OnInit {
   student: Student;
   constructor(
     private studentService: StudentService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit() {
     this.getStudent();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
   getStudent(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -24,5 +30,10 @@ export class StudentsDetailComponent implements OnInit {
         .then(studentData => {
           this.student = studentData.data;
         });
+  }
+  deleteStudent(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.studentService.deleteStudent(id)
+        .then(() => this.goBack());
   }
 }

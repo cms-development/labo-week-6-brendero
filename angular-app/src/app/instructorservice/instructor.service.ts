@@ -71,9 +71,9 @@ export class InstructorService {
   }
   // DELETE
 
-async deleteInstructor(instructor: Instructor | number): Promise<Instructor> {
+async deleteInstructor(instructor: Instructor | string): Promise<Instructor> {
   try {
-    const id = typeof instructor === 'number' ? instructor : instructor.id;
+    const id = instructor;
 
     const res = await axios.request<Instructor>({
       method: 'delete',
