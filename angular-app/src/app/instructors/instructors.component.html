@@ -1,0 +1,15 @@
+<h1>
+  Instructors
+</h1>
+
+<a routerLink="/instructors/add"><i class="material-icons">add</i></a>
+<div>
+  <ul>
+    <li *ngFor="let instructor of instructors">
+
+      <a routerLink="/instructor/{{instructor.id}}"><span class="title">{{instructor.attributes.name}}</span></a>
+
+      <a routerLink="/instructor/{{instructor.id}}/edit" class="secondary-content"><i class="material-icons">create</i></a>
+    </li>
+    </ul>
+</div>

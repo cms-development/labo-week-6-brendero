@@ -1,0 +1,13 @@
+<h1>
+    Students
+  </h1>
+
+  <a routerLink="/students/add"><i class="material-icons">add</i></a>
+  <div>
+    <ul>
+      <li *ngFor="let student of students">
+        <a routerLink="/student/{{student.id}}"><span class="title">{{student.attributes.name}}</span></a>
+        <a routerLink="/student/{{student.id}}/edit" class="secondary-content"><i class="material-icons">create</i></a>
+      </li>
+      </ul>
+  </div>

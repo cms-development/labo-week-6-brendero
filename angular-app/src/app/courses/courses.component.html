@@ -1,0 +1,14 @@
+<h1>
+  Courses
+</h1>
+
+<a class='btn-floating btn-large waves-effect waves-light add-post-btn' routerLink="/courses/add"><i class="material-icons">add</i></a>
+<div class="container" >
+  <ul class="collection">
+    <li class="collection-item avatar" *ngFor="let course of courses">
+      <a routerLink="/course/{{course.id}}"><span class="title">{{course.attributes.name}}</span></a>
+
+      <a routerLink="/course/{{course.id}}/edit" class="secondary-content"><i class="material-icons">create</i></a>
+    </li>
+    </ul>
+</div>
