@@ -57,11 +57,11 @@ export class StudentService {
    }
 
   // UPDATE
-  async updateStudent(student: Student): Promise<Student> {
+  async updateStudent(student: Json): Promise<Student> {
     try {
       const res = await axios.request<Student>({
         method: 'patch',
-        url: `${this.tokenUrl}/${student.id}`,
+        url: `${this.tokenUrl}/${student.data.id}`,
         data: student
       });
 

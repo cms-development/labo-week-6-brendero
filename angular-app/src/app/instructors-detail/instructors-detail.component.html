@@ -1,16 +1,9 @@
-<div *ngIf="instructor">
-  <div>
-    {{instructor.attributes.name}}
+<div *ngIf="instructor" class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">{{instructor.attributes.name}}</h1>
+    <p class="lead">{{instructor.attributes.field_academic_rank}}</p>
+    <hr class="my-4">
+    <p>{{instructor.attributes.field_academic_title}}</p>
   </div>
-  <div>
-    {{instructor.attributes.field_academic_rank}}
-  </div>
-  <div>
-    {{instructor.attributes.field_academic_title}}
-  </div>
-  <div>
-    {{instructor.attributes.field_first_name}}
-  </div>
-
-  <button (click)="deleteCourse()">Delete</button>
+  <button (click)="deleteCourse()" class="btn">Delete</button>
 </div>

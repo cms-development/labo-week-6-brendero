@@ -56,11 +56,11 @@ export class InstructorService {
    }
 
   // UPDATE
-  async updateInstructor(instructor: Instructor): Promise<Instructor> {
+  async updateInstructor(instructor: Json): Promise<Instructor> {
     try {
       const res = await axios.request<Instructor>({
         method: 'patch',
-        url: `${this.tokenUrl}/${instructor.id}`,
+        url: `${this.tokenUrl}/${instructor.data.id}`,
         data: instructor
       });
 

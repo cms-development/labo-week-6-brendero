@@ -1,19 +1,27 @@
-<form (ngSubmit)="addCourse()">
-  <div>
-    <input id="name" title="name" placeholder="Name" name="name" [(ngModel)]="name">
-  </div>
-  <div>
-    <input id="Academic institution" title="Academic institution" name="academicInstitution" placeholder="Academic institution" [(ngModel)]="academicInstitution">
-  </div>
-  <div>
-    <select id="instructor" name="instructor" [(ngModel)]="formInstructors" >
-      <option *ngFor="let instructor of instructors" value="{{instructor.id}}">{{instructor.attributes.name}}</option>
-    </select>
-  </div>
-  <div>
-    <select id="student" name="student" multiple [(ngModel)]="formStudents">
-      <option *ngFor="let student of students" value="{{student.id}}">{{student.attributes.name}}</option>
-    </select>
-  </div>
-  <button type="submit">Submit</button>
-</form>
+<div class="container">
+  <form (ngSubmit)="addCourse()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input class="form-control" id="name" title="name" placeholder="Name" name="name" [(ngModel)]="name">
+    </div>
+    <div class="form-group">
+      <label for="Academicinstitution">Academic institution</label>
+      <input class="form-control" id="Academicinstitution" title="Academic institution" name="academicInstitution" placeholder="Academic institution" [(ngModel)]="academicInstitution">
+    </div>
+    <div class="form-group">
+      <label>Instructor</label>
+      <select class="custom-select" id="instructor" name="instructor" [(ngModel)]="formInstructors" >
+        <option *ngFor="let instructor of instructors" value="{{instructor.id}}">{{instructor.attributes.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Students</label>
+      <select class="custom-select" id="student" name="student" multiple [(ngModel)]="formStudents">
+        <option *ngFor="let student of students" value="{{student.id}}">{{student.attributes.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button class="waves-effect waves-light btn" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

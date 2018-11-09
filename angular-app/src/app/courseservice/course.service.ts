@@ -57,11 +57,11 @@ export class CourseService {
    }
 
   // UPDATE
-  async updateCourse(course: Course): Promise<Course> {
+  async updateCourse(course: Json): Promise<Course> {
     try {
       const res = await axios.request<Course>({
         method: 'patch',
-        url: `${this.tokenUrl}/${course.id}`,
+        url: `${this.tokenUrl}/${course.data.id}`,
         data: course
       });
 

@@ -63,7 +63,6 @@ export class CoursesAddComponent implements OnInit {
     this.course.relationships.field_instructor.data.id = this.formInstructors;
     this.course.relationships.field_students = new FieldStudentsData();
     this.formStudents.forEach(el => {
-
       console.log(el);
       this.course.relationships.field_students.data = new FieldStudents();
       this.course.relationships.field_students.data.id = el;
@@ -71,7 +70,7 @@ export class CoursesAddComponent implements OnInit {
     this.jsonFormat.data = this.course;
 
     console.log(this.course);
-    // this.courseService.addCourse(this.jsonFormat)
-    //     .then(() => this.goBack());
+    this.courseService.addCourse(this.jsonFormat)
+        .then(() => this.goBack());
   }
 }

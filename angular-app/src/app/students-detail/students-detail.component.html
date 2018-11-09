@@ -1,10 +1,8 @@
-<div *ngIf="student">
-  <div>
-    {{student.attributes.name}}
-  </div>
-  <div>
-    {{student.attributes.field_student}}
+<div *ngIf="student" class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">{{student.attributes.name}}</h1>
+    <p class="lead">{{student.attributes.field_student}}</p>
   </div>
 
-  <button (click)="deleteStudent()">Delete</button>
+  <button (click)="deleteStudent()" class="btn">Delete</button>
 </div>

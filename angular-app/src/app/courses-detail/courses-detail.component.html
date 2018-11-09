@@ -1,8 +1,10 @@
 <div *ngIf="course">
   <div class="container">
-    {{course.attributes.name}}
+    <div class="jumbotron">
+      <h1 class="display-4">{{course.attributes.name}}</h1>
+      <p class="lead">{{course.attributes.field_academic_institution}}</p>
+    </div>
 
-
-    <button (click)="deleteCourse()">Delete</button>
+    <button (click)="deleteCourse()" class="btn">Delete</button>
   </div>
 </div>
